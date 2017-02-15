@@ -1,4 +1,6 @@
 ud120-projects
 ==============
 
-Starter project code for students taking Udacity ud120
+Course: https://www.udacity.com/course/intro-to-machine-learning--ud120
+
+Github repository: https://github.com/udacity/ud120-projects
