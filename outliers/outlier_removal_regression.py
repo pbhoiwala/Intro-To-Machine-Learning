@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pickle
 
 from outlier_cleaner import outlierCleaner
-
+from sklearn.linear_model import LinearRegression
 
 ### load up some practice data with outliers in it
 ages = pickle.load( open("practice_outliers_ages.pkl", "r") )
@@ -16,7 +16,7 @@ net_worths = pickle.load( open("practice_outliers_net_worths.pkl", "r") )
 
 ### ages and net_worths need to be reshaped into 2D numpy arrays
 ### second argument of reshape command is a tuple of integers: (n_rows, n_columns)
-### by convention, n_rows is the number of data points
+### by convention, n_rows is the numbe r of data points
 ### and n_columns is the number of features
 ages       = numpy.reshape( numpy.array(ages), (len(ages), 1))
 net_worths = numpy.reshape( numpy.array(net_worths), (len(net_worths), 1))
@@ -26,8 +26,10 @@ ages_train, ages_test, net_worths_train, net_worths_test = train_test_split(ages
 ### fill in a regression here!  Name the regression object reg so that
 ### the plotting code below works, and you can see what your regression looks like
 
-
-
+reg = LinearRegression()
+reg.fit(ages_train, net_worths_train)
+print(reg.coef_)
+print(reg.score(ages_test, net_worths_test))
 
 
 
